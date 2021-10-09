@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de ideas de mejora</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png">
+    
+</head>
+<body>
+    <!--Inicio del menú-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <img src="logo.png" alt="" width="135" height="80">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+            <a class="nav-link" href="mostrar.php">Ideas de todo el equipo</a>
+            <a class="nav-link" href="tablas.php">Ideas aprobadas</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--Fin del menu-->
+    
+        <!--Dark mode-->
+    <div style="margin-top: 20px;" class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary me-md-2" id="bdark" type="button">☼ - ☾</button>
+    </div>
+    <!--Dark mode-->
+
+    <!--Función para crear alerta antes de enviar-->
+    <script type="text/javascript">
+           const bdark = document.querySelector('#bdark');
+        const body = document.querySelector('body');
+
+        load();
+        bdark.addEventListener('click', e =>{
+            body.classList.toggle('darkmode');
+            store(body.classList.contains('darkmode'));
+        });
+
+        function load(){
+            const darkmode = localStorage.getItem('darkmode');
+
+            if(!darkmode){
+                store ('false');
+            }else if(darkmode == 'true'){
+                body.classList.add('darkmode');
+            }
+        }
+
+        function store(value){
+            localStorage.setItem('darkmode', value);
+        }
+        
+        
+        function ConfirmSubmit(){
+          var respuesta = confirm("¿Estás seguro que lo quieres enviar?");
+
+          if (respuesta == true){
+            return true;
+          }
+          else {
+            return false;
+          }
+        }
+    </script>
+    <!--Fin de la función-->
+
+    <!--Formulario de registro-->
+    <h1>Campos para proponer ideas de mejora</h1>
+    <form class="formulario" action="recibe.php" method="POST" enctype="multipart/form-data">
+    <div>
+        
+        <section >
+              Nombre:
+              <select name="nombre" style="margin-bottom: 20px">
+                  <option value="Selecciona una opción">Selecciona una opción</option>
+                  <option value="Brandon Michael">Brandon Michael</option>
+                  <option value="Mario Valencia">Mario Valencia</option>
+                  <option value="Osvaldo Manrique">Osvaldo Manrique</option>
+                  <option value="Isela Flores">Isela Flores</option>
+                  <option value="Carolina Sanchéz">Carolina Sanchéz</option>
+                  <option value="Alicia Antunez">Alicia Antunez</option>
+                  <option value="Fernanda Esteban">Fernanda Esteban</option>
+                  <option value="Ana Reynoso">Ana Reynoso</option>
+                  <option value="Reyna Morales">Reyna Morales</option>
+                  <option value="Diana Mendoza">Diana Mendoza</option>
+                  <option value="Leonardo Mendoza">Leonardo Mendoza</option>
+              </select> <br>
+
+              Departamento:
+                <select name="area" style="margin-bottom: 20px">
+                    <option value="Selecciona una opción">Selecciona una opción</option>
+                    <option value="Sistemas">Sistemas</option>
+                    <option value="Soporte de operaciones">Gestión de operaciones</option>
+                    <option value="Coordinación mejora continua">Coordinación mejora continua</option>
+                    <option value="Soporte de mejora continua">Soporte de mejora continua</option>
+                    <option value="Reconocimiento de marca">Reconocimiento de marca</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Atención al cliente">Atención al cliente</option>
+                    <option value="Soporte operativo">Soporte operativo</option>
+                </select> <br>
+
+                Folio:
+              <select name="folio" style="margin-bottom: 20px">
+                  <option value="Selecciona una opción">Selecciona una opción</option>
+                  <option value="BMS">BMS</option>
+                  <option value="MVGO">MVGO</option>
+                  <option value="OMM">OMM</option>
+                  <option value="IFCMC">IFCMC</option>
+                  <option value="CSSMC">CSSMC</option>
+                  <option value="AARM">AARM</option>
+                  <option value="FEAC">FEAC</option>
+                  <option value="ARSO">ARSO</option>
+                  <option value="RMSO">RMSO</option>
+                  <option value="DMSO">DMSO</option>
+                  <option value="LMSO">LMSO</option>
+              </select>
+
+
+            <p>Idea de mejora:<input type="text" name="idea_mejora" class="form-control" placeholder="Escribe tu idea"></p>
+
+            Área de la mejora:
+            <select name="areamejora" style="margin-bottom: 20px">
+                <option value="Selecciona una opción">Selecciona una opción</option>
+                <option value="Sistemas">Sistemas</option>
+                <option value="Soporte de operaciones">Gestión de operaciones</option>
+                <option value="Coordinación mejora continua">Coordinación mejora continua</option>
+                <option value="Soporte de mejora continua">Soporte de mejora continua</option>
+                <option value="Reconocimiento de marca">Reconocimiento de marca</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Atención al cliente">Atención al cliente</option>
+                <option value="Soporte operativo">Soporte operativo</option>
+            </select>
+            
+            <p>Descripción de idea de mejora:<input type="text" name="descripcion_mejora" class="form-control" placeholder="Describe a grandes rasgos tu idea de mejora"></p>
+            Prioridad:
+                <select name="prioridad">
+                    <option value="BAJA">BAJA</option>
+                    <option value="MEDIA">MEDIA</option>
+                    <option value="ALTA">ALTA</option>
+                </select> 
+            Responsable:
+                          <select name="responsable">
+                            <option value="Mario Valencia">Mario Valencia</option>
+                            <option value="Isela Flores">Isela Flores</option>
+                            <option value="Osvaldo Manrique">Osvaldo Marique</option>
+                            <option value="Ana Reynoso">Ana Reynoso</option>
+                          </select> <br/>
+
+            <p>Fecha inicial:<input type="date" name="fecha_inicio" class="form-control" placeholder="Ingrese la fecha aproximada de finalización"></p>
+            <p>Fecha final:<input type="date" name="fecha_final" class="form-control" placeholder="Ingrese la fecha aproximada de finalización"></p>
+            
+            <p>Archivo:<input type="text" name="archivo" class="form-control" placeholder="Coloca el link de archivo"></p>
+
+              Estatus:
+                <select name="estatus">
+                    <option value="Pendiente">Pendiente</option>
+                </select> <br>
+                
+            Implementación:
+                <select name="implementacion">
+                    <option value="Pendiente">Pendiente</option>
+                </select> <br>
+
+                Fecha de implementación:
+                <select name="fecha_implementacion">
+                    <option value="Pendiente">Pendiente</option>
+                </select> <br>
+
+
+
+    <!--Fin del formulario de registro-->
+
+    <!--Botones para enviar y consultar-->
+    <div class="botonesIndex">
+      <form action="recibe.php">
+      <button type="submit" onclick="return ConfirmSubmit()" class="btn btn-lg btn-primary">Enviar</button>
+    </form>
+    </div>
+  
+ <!--Fin botones-->
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</html>

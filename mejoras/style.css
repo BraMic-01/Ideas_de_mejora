@@ -1,0 +1,77 @@
+body{
+    background: #E8F0F2;
+    font-size: medium;
+}
+
+body h1{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+h6{
+    text-align: center;
+}
+
+.formulario{
+    width: 50%; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-top: 50px;
+}
+
+.tabla{
+    text-align: center;
+    margin-top: 10px;
+    padding: 50px;
+
+}
+
+.ideaRegistrada{
+    margin-top: 200px;
+    text-align: center;
+}
+
+.boton, .botonesIndex{
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.botonAprobar{
+    margin-top: 80px;
+}
+
+.buscarPersona{
+
+    margin-top: 100px;
+    padding-left: 400px;
+    padding-right: 400px;
+
+}
+
+.actualizar{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.calificacion{
+    text-align: center;
+    margin-top: 150px;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body.darkmode{
+    background-color: #16213E;
+    color: white;
+}
+
+@media all and (max-width: 653px) {
+    
+    .ideaRegistrada{
+        padding: 10px;
+        margin-top: 200px;
+        text-align: center;
+    }
+}

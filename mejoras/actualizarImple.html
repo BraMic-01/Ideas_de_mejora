@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar implementación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!--Inicio del menú-->
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="logo.png" alt="" width="135" height="80">
+          </a>
+        </div>
+      </nav>
+    <!--Fin del menu-->
+
+     <!--Función para crear alerta antes de enviar-->
+     <script type="text/javascript">
+      function ConfirmSubmit(){
+        var respuesta = confirm("¿Estás seguro que lo quieres enviar?");
+
+        if (respuesta == true){
+          return true;
+        }
+        else {
+          return false;
+        }
+      }
+  </script>
+  <!--Fin de la función-->
+
+    <h1>Actualiza tu información</h1>
+
+    <div class="actualizar" style="width: 20%; margin-left: auto; margin-right: auto; margin-top: 50px;">
+        <form action="implementacion.php" method="POST">
+            <p>ID de la idea: <input type="number" name="id" placeholder="Seleccione la ID de la idea"> <br> </p> 
+            Estado de implementación:
+              <select name="implementacion">
+                  <option value="IMPLEMENTADA">IMPLEMENTADA</option>
+                  <option value="NO IMPLEMENTADA">NO IMPLEMENTADA</option>
+              </select>  <br>
+              
+              <p>Fecha de implementación:<input type="date" name="fecha_implementacion" class="form-control"></p> <br>
+                <div class="botonAprobar">
+                  <button class="btn btn-primary" onclick="return ConfirmSubmit()" type="submit">Actualizar</button>
+                </div>
+                
+        </form>
+
+    </div>
+    
+    <script type="text/javascript">
+       const bdark = document.querySelector('#bdark');
+        const body = document.querySelector('body');
+
+        load();
+        bdark.addEventListener('click', e =>{
+            body.classList.toggle('darkmode');
+            store(body.classList.contains('darkmode'));
+        });
+
+        function load(){
+            const darkmode = localStorage.getItem('darkmode');
+
+            if(!darkmode){
+                store ('true');
+            }else if(darkmode == 'true'){
+                body.classList.add('darkmode');
+            }
+        }
+
+        function store(value){
+            localStorage.setItem('darkmode', value);
+        }
+</script>
+    
+    
+</body>
+</html>
